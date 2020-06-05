@@ -92,6 +92,7 @@ describe "Owners Controller" do
     it "edit's the owner's pets with an existing pet" do
       @shaggy = Pet.create(:name => "Shaggy")
       visit "/owners/#{@owner.id}/edit"
+      #save_and_open_page
       check(@shaggy.id)
       click_button "Update Owner"
       expect(Owner.last.pets.last.name).to eq("Shaggy")
